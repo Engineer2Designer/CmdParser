@@ -9,7 +9,7 @@
 
 #if defined(__AVR__)
 #include <avr/pgmspace.h>
-#elif defined(ESP8266)
+#elif defined(ESP8266) || defined(ESP32)
 #include <pgmspace.h>
 #endif
 
@@ -181,7 +181,7 @@ class _CmdCallback : public CmdCallbackObject
     size_t m_nextElement;
 };
 
-#if defined(__AVR__) || defined(ESP8266)
+#if defined(__AVR__) || defined(ESP8266) || defined(ESP32)
 /**
  *
  *

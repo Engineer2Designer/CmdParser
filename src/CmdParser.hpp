@@ -9,7 +9,7 @@
 
 #if defined(__AVR__)
 #include <avr/pgmspace.h>
-#elif defined(ESP8266)
+#elif defined(ESP8266) || defined(ESP32)
 #include <pgmspace.h>
 #endif
 
@@ -22,7 +22,7 @@ const uint8_t  CMDPARSER_CHAR_DQ = 0x22;
 const uint8_t  CMDPARSER_CHAR_EQ = 0x3D;
 const uint16_t CMDPARSER_ERROR   = 0xFFFF;
 
-#if defined(__AVR__) || defined(ESP8266)
+#if defined(__AVR__) || defined(ESP8266) || defined(ESP32)
 typedef PGM_P CmdParserString_P;
 #endif
 typedef const char *CmdParserString;
@@ -175,7 +175,7 @@ class CmdParser
         return false;
     }
 
-#if defined(__AVR__) || defined(ESP8266)
+#if defined(__AVR__) || defined(ESP8266) || defined(ESP32)
 
     /**
      * @see equalCommand
